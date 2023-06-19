@@ -24,11 +24,6 @@ app.use((req, res, next)=>{
     next();
 })
 
-app.get('/',(req,res,next)=>{
-    res.status(200).json({
-        message: "home"
-    })
-})
 app.use('/products',productRoutes)
 app.use('/orders', orderRoutes)
 
@@ -45,5 +40,10 @@ app.use((error,req,res,next)=>{
     })
 })
 
+app.get('/',(req,res,next)=>{
+    res.status(200).json({
+        message: "home"
+    })
+})
 
 module.exports = app;
