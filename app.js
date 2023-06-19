@@ -26,7 +26,7 @@ app.use((req, res, next)=>{
 
 app.use('/products',productRoutes)
 app.use('/orders', orderRoutes)
-app.get('/', (res,req)=>{
+app.get('/', (req,res)=>{
     res.status(200).json({
         message: "home"
     })
