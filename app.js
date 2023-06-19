@@ -8,7 +8,7 @@ require('dotenv').config()
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 
-mongoose.connect('mongodb+srv://KHAL:'+process.env.Mongopswrd+'@esptest.82qpdwn.mongodb.net/')
+mongoose.connect(mongoUri)
 
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended: false}))
