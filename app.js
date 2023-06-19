@@ -11,6 +11,7 @@ const orderRoutes = require('./api/routes/orders');
 const connectDB = async()=>{
     try{
         await mongoose.connect(process.env.mongoUri)
+        console.log('connected to DB')
     }
     catch(error){
         console.log('connectDB error')
