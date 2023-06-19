@@ -4,9 +4,6 @@ const mongoose = require('mongoose')
 
 const Product = require('./models/product')
 
-router.use(express.json())
-router.use(express.urlencoded({extended: true}))
-
 router.get('/', (req,res,next)=>{
     res.status(200).json({
         message : 'Handling Get reqs to /products'
@@ -23,14 +20,8 @@ router.post('/', (req,res,next)=>{
     .save()
     .then(result => {
         console.log(result);
-        return res.status(201).json({
-            message: 'created'
-        })
     })
-    .catch(err => {console.log(err)
-    return res.status(400).json({
-        message: 'post error'
-    })})
+    .catch(err => console.log(err))
     
 })
 
