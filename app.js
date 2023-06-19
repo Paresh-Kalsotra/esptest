@@ -24,6 +24,11 @@ app.use((req, res, next)=>{
     next();
 })
 
+app.get('/',(req,res)=>{
+    res.status(200).json({
+        message: "home"
+    })
+})
 app.use('/products',productRoutes)
 app.use('/orders', orderRoutes)
 
