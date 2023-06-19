@@ -23,6 +23,12 @@ app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
+app.get('/',(req,res,next)=>{
+    res.status(200).json({
+        message: "home"
+    })
+})
+
 app.use((req, res, next)=>{
     res.header('Acess-Control-Origin', '*')
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
@@ -46,12 +52,6 @@ app.use((error,req,res,next)=>{
         error: {
             message : error.message
         }
-    })
-})
-
-app.get('/',(req,res,next)=>{
-    res.status(200).json({
-        message: "home"
     })
 })
 
