@@ -8,14 +8,15 @@ require('dotenv').config()
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 
-(async()=>{
+const connectDB = async()=>{
     try{
         await mongoose.connect(process.env.mongoUri)
     }
     catch(error){
         handleError(error)
     }
-})()
+}
+connectDB()
 
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended: false}))
