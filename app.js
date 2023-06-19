@@ -35,7 +35,6 @@ app.get('/',(req,res,next)=>{
     res.status(200).json({
         message: "home"
     })
-    next()
 })
 app.use('/products',productRoutes)
 app.use('/orders', orderRoutes)
@@ -52,7 +51,6 @@ app.use((error,req,res,next)=>{
             message : error.message
         }
     })
-    next()
 })
 
 
