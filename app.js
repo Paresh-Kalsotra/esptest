@@ -24,10 +24,11 @@ app.use((req, res, next)=>{
     next();
 })
 
-app.get('/',(req,res)=>{
+app.get('/',(req,res,next)=>{
     res.status(200).json({
         message: "home"
     })
+    next()
 })
 app.use('/products',productRoutes)
 app.use('/orders', orderRoutes)
