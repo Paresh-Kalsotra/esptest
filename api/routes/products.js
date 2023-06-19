@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const Product = require('./models/product')
 
 router.use(express.json())
-router.use(express.urlencoded({extencded: true}))
+router.use(express.urlencoded({extended: true}))
 
 router.get('/', (req,res,next)=>{
     res.status(200).json({
