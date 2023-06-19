@@ -23,11 +23,15 @@ router.post('/', (req,res,next)=>{
     .save()
     .then(result => {
         console.log(result);
+        return res.status(201).json({
+            message: 'created'
+        })
     })
-    .catch(err => console.log(err))
-    res.status(201).json({
-        message : 'Handling Post reqs to /products'
-    })
+    .catch(err => {console.log(err)
+    return res.status(400).json({
+        message: 'post error'
+    })})
+    
 })
 
 router.patch('/:productId', (req,res,next)=>{
