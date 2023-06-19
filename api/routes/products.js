@@ -5,8 +5,17 @@ const mongoose = require('mongoose')
 const Product = require('./models/product')
 
 router.get('/', (req,res,next)=>{
-    res.status(200).json({
-        message : 'Handling Get reqs to /products'
+    Product.find()
+    .exec()
+    .then(docs =>{
+        console.log(docs)
+        res.status(200).json(docs)
+    })
+    .catch(err =>{
+        console.log(err)
+        res.status(500).json({
+            error:err
+        })
     })
 })
 
@@ -20,9 +29,32 @@ router.post('/', (req,res,next)=>{
     .save()
     .then(result => {
         console.log(result);
+        res.status(201).json({
+            message: 'Handling Post reqs to /products',
+            createdProduct: result
+        })
     })
-    .catch(err => console.log(err))
-    
+    .catch(err =>{
+        console.log(err);
+        res.status(500).json({
+            error: err
+        })
+    })
+})
+
+router.get('/:productId', (req,res,next)=>{
+    Product.findById(id)
+    .exec()
+    .then(docs =>{
+        console.log(docs)
+        res.status(200).json(docs)
+    })
+    .catch(err =>{
+        console.log(err)
+        res.status(500).json({
+            error:err
+        })
+    })
 })
 
 router.patch('/:productId', (req,res,next)=>{
