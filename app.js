@@ -26,11 +26,8 @@ app.use((req, res, next)=>{
 
 app.use('/products',productRoutes)
 app.use('/orders', orderRoutes)
-app.get('/', (req,res)=>{
-    res.status(200).json({
-        message: "home"
-    })
-})
+app.use(productRoutes)
+
 app.use((req,res,next)=>{
     const error = new Error('Not found');
     error.status = 404;
