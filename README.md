@@ -1,7 +1,8 @@
 # esptest
 node proj for esp test
 
-endpoints => { /, products, /:productId, orders,/:orderId}
+endpoints => { /, products, orders}
+params => { /:productId, /:orderId }
 methods => {GET, POST, PATCH, DELETE}
 Model => { name: String,
     price: Number }
